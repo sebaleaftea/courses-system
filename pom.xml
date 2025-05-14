@@ -19,6 +19,7 @@
 
   <modules>
     <module>microservice-gateway</module>
+    <module>microservice-eureka</module>
   </modules><!--El microservicio ya es un modulo de nuestro padre-->
 
 
