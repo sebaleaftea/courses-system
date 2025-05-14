@@ -1,10 +1,10 @@
-package com.microservice.gateway;
+package com.microservice.gateway.microservice_gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class MicroserviceGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {

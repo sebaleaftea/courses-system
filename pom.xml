@@ -16,7 +16,12 @@
 
   <name>SpringMicroService</name>
   <packaging>pom</packaging><!--Contenedor de proyectos-->
-  
+
+  <modules>
+    <module>microservice-gateway</module>
+  </modules><!--El microservicio ya es un modulo de nuestro padre-->
+
+
   <url>http://www.example.com</url>
 
   <properties>

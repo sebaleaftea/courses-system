@@ -1,13 +1,13 @@
-package com.microservice.gateway;
+package com.microservice.gateway.microservice_gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class MicroserviceGatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(MicroserviceGatewayApplication.class, args);
 	}
 
 }
