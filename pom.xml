@@ -21,6 +21,7 @@
     <module>microservice-gateway</module>
     <module>microservice-eureka</module>
     <module>microservice-config</module>
+    <module>microservice-student</module>
   </modules><!--El microservicio ya es un modulo de nuestro padre-->
 
 
