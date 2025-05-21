@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.microservice.student.model.Student;
-import com.microservice.student.service.IStudentService;
 import com.microservice.student.repository.StudentRepository;
 
 
