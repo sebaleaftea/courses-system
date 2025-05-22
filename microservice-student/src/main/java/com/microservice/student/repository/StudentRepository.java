@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepository extends JpaRepository<Student,Long>{
 
     
-    @Query("SELECT s FROM Student s WHERE s.courseId = :idCouse")
+    @Query("SELECT s FROM Student s WHERE s.courseId = :idCourse")
     List<Student> findAllStudent(Long idCourse);
 
     //Query Method
