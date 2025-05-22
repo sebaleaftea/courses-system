@@ -13,6 +13,8 @@ import com.microservice.student.model.Student;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -41,6 +43,12 @@ public class StudentController {
     @GetMapping("/search/{id}")    
     public ResponseEntity<?> findById(@PathVariable Long id){
         return ResponseEntity.ok(iStudentService.findById(id));
+    }
+
+
+    @GetMapping("/search-by-course/{id}")
+    public ResponseEntity<?> findByIdCourse(@PathVariable Long idCourse){
+        return ResponseEntity.ok(iStudentService.findByIdCourse(idCourse));
     }
 
 }
