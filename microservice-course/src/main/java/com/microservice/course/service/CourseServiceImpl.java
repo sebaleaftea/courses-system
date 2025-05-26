@@ -40,6 +40,7 @@ public class CourseServiceImpl implements ICourseService{
 
 
         //Consultar el curso
+        //Porque devuelve un optional
         Course course = iCourseRepository.findById(idCourse).orElse(new Course());
 
         //Obtener los estudiantes que estan en el curso obtenido

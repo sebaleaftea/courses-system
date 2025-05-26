@@ -7,5 +7,5 @@ import com.microservice.course.model.Course;
 
 @Repository
 public interface ICourseRepository extends JpaRepository<Course , Long>{
-
+    
 }
