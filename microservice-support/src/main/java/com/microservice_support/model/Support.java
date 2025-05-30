@@ -23,6 +23,6 @@ public class Support {
     private String description;
 
     @Column(name = "status")
-    private String status;  //no visto, en proceso , resuelto
+    private String status;  //pendiente, en proceso , resuelto
 
 }

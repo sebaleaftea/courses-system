@@ -25,6 +25,7 @@
     <module>microservice-student</module>
     <module>microservice-client</module>
     <module>microservice-support</module>
+    <module>microservice-enrollment</module>
   </modules><!--El microservicio ya es un modulo de nuestro padre-->
 
 
