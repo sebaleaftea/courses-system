@@ -2,6 +2,7 @@ package com.microservice_enrollment.service;
 
 import java.util.List;
 
+import com.microservice_enrollment.http.response.StudentByEnrollmentResponse;
 import com.microservice_enrollment.model.Enrollment;
 
 public interface IEnrollmentService {
