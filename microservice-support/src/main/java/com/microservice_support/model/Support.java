@@ -19,10 +19,11 @@ public class Support {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "description")
-    private String description;
-
+    private String ticket;
+    
     @Column(name = "status")
     private String status;  //pendiente, en proceso , resuelto
+
+    private Long studentId;
 
 }

@@ -19,3 +19,4 @@ public class StudentByCourseResponse {
     private String teacher;
     private List<StudentDTO> studentDTOList;
 }
+
