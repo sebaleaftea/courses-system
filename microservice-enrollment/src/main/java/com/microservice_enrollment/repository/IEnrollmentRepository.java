@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.microservice_enrollment.model.Enrollment;
 
 @Repository
-public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
+public interface IEnrollmentRepository extends JpaRepository<Enrollment, Long>{
 
 }

@@ -47,7 +47,7 @@ public class SupportController {
     }   
     
     @GetMapping("/search-student/{idSupport}")
-    public ResponseEntity<?> findStudentsByIdCourse(@PathVariable Long idSupport){
+    public ResponseEntity<?> findStudentByIdSupport(@PathVariable Long idSupport){
         return ResponseEntity.ok(supportService.findStudentByIdSupport(idSupport));
     }
 }

@@ -1,5 +1,7 @@
 package com.microservice_enrollment.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,8 +22,8 @@ public class Enrollment {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-
-    @Column
+    private Date pay;
+    private String expiration; //1 mes, 2meses ,etc
     private String status; //curso iniciado,pendiente,completado, etc
 
 
