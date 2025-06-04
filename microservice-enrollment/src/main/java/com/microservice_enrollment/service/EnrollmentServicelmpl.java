@@ -9,12 +9,13 @@ import com.microservice_enrollment.client.StudentClient;
 import com.microservice_enrollment.dto.StudentDTO;
 import com.microservice_enrollment.http.response.StudentByEnrollmentResponse;
 import com.microservice_enrollment.model.Enrollment;
+import com.microservice_enrollment.repository.IEnrollmentRepository;
 
 @Service
 public class EnrollmentServicelmpl implements IEnrollmentService{
 
     @Autowired
-    private  IEnrollmentService iEnrollmentRepository;
+    private  IEnrollmentRepository iEnrollmentRepository;
 
     @Autowired
     private StudentClient studentClient;

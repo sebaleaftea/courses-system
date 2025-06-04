@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.microservice_certificate.model.Certificate;
 
 @Repository
-public interface CertificateRepository extends JpaRepository<Certificate, Long> {
+public interface ICertificateRepository extends JpaRepository<Certificate, Long> {
 
 }
