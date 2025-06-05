@@ -16,7 +16,7 @@ import com.microservice_certificate.repository.ICertificateRepository;
 import com.microservice_certificate.service.ICertificateService;
 
 @RestController
-@RequestMapping("/api/vi/certificate")
+@RequestMapping("/api/v1/certificate")
 public class CertificateController {
 
     @Autowired
