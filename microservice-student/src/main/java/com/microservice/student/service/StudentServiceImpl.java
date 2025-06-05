@@ -10,7 +10,7 @@ import com.microservice.student.repository.StudentRepository;
 
 
 @Service
-public class StutendServiceImpl implements IStudentService{
+public class StudentServiceImpl implements IStudentService{
 
     @Autowired
     private StudentRepository studentRepository;
@@ -34,25 +34,24 @@ public class StutendServiceImpl implements IStudentService{
     @Override
     public List<Student> findByIdCourse(Long idCourse) {
         //Este es el que creamos con la notación query o con el nombre del metodo
-        return studentRepository.findAllStudent(idCourse);
+        return studentRepository.findAllByCourseId(idCourse);
     }
 
     @Override
     public List<Student> findByIdEnrollment(Long idEnrollment) {
-        //Este es el que creamos con la notación query o con el nombre del metodo
-        return studentRepository.findAllStudent(idEnrollment);
+        return studentRepository.findAllByEnrollmentId(idEnrollment);
     }
 
     @Override
     public List<Student> findByIdCertificate(Long idCertificate) {
         //Este es el que creamos con la notación query o con el nombre del metodo
-        return studentRepository.findAllStudent(idCertificate);
+        return studentRepository.findAllByCertificateId(idCertificate);
     }
 
     @Override
     public List<Student> findByIdSupport(Long idSupport) {
         //Este es el que creamos con la notación query o con el nombre del metodo
-        return studentRepository.findAllStudent(idSupport);
+        return studentRepository.findAllBySupportId(idSupport);
     }
 
 

@@ -18,7 +18,22 @@ spring:
           uri: http://localhost:9090
           predicates:
             - Path=/api/v1/course/**
-        
+        - id: enrollments
+          uri: http://localhost:8070
+          predicates:             
+            - Path=/api/v1/enrollment/**    
+        - id: certificates
+          uri: http://localhost:8070
+          predicates:             
+            - Path=/api/v1/certificate/**
+        - id: certificates
+          uri: http://localhost:8070
+          predicates:             
+            - Path=/api/v1/certificate/**
+        - id: supports
+          uri: http://localhost:8070
+          predicates:             
+            - Path=/api/v1/support/**          
 eureka:
   cliente:
     register-with-eureka: false

@@ -22,7 +22,7 @@ public class Enrollment {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private Date pay;
+    private String pay;
     private String expiration; //1 mes, 2meses ,etc
     private String status; //curso iniciado,pendiente,completado, etc
 

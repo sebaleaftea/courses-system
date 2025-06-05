@@ -1,9 +1,13 @@
 package com.microservice_certificate.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.microservice_certificate.client.StudentClient;
+import com.microservice_certificate.dto.StudentDTO;
+import com.microservice_certificate.http.response.StudentByCertificateResponse;
 import com.microservice_certificate.model.Certificate;
 import com.microservice_certificate.repository.ICertificateRepository;
 
@@ -30,7 +34,23 @@ public class CertificateServicelmpl implements ICertificateService{
         iCertificateRepository.save(certificate);
     }
 
-    //instanciar el response de estudiante a travez del http>response...
+    @Override
+    public StudentByCertificateResponse findStudentsByIdCertificate(Long idCertificate){
 
+        Certificate certificate = iCertificateRepository.findById(idCertificate).orElse(new Certificate());
+
+        List<StudentDTO> studentDTOList = studentClient.findAllStudentByCertificate(idCertificate);
+
+        return StudentByCertificateResponse.builder()
+                .certificateName(certificate.getName())
+                .expirationDate(certificate.getExpirationDate())
+                .issueDate(certificate.getIssueDate())
+                .studentDTOList(studentDTOList)
+                .build();
+   
+    
+    
+     
+    }
 
 }

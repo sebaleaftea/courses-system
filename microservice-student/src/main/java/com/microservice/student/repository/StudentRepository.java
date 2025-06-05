@@ -13,16 +13,16 @@ public interface StudentRepository extends JpaRepository<Student,Long>{
 
     
     @Query("SELECT s FROM Student s WHERE s.courseId = :idCourse")
-    List<Student> findAllStudent(Long idCourse);
+    List<Student> findAllByCourseId(Long idCourse);
 
     @Query("SELECT s FROM Student s WHERE s.enrollmentId = :idEnrollment")
-    List<Student> findAllStudent(Long idEnrollment);
+    List<Student> findAllByEnrollmentId(Long idEnrollment);
 
     @Query("SELECT s FROM Student s WHERE s.certificateId = :idCertificate")
-    List<Student> findAllStudent(Long idCertificate);
+    List<Student> findAllByCertificateId(Long idCertificate);
 
     @Query("SELECT s FROM Student s WHERE s.supportId = :idSupport")
-    List<Student> findAllStudent(Long idSupport);
+    List<Student> findAllBySupportId(Long idSupport);
 
     //Query Method
     //List<Student> findAllByCourseId(Long courseId);

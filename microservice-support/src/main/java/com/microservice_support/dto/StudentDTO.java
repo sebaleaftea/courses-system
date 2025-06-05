@@ -13,10 +13,8 @@ import lombok.Data;
 public class StudentDTO {
 
 
-    private String name;
-    private String lastName;
-    private String email;
-    private Long courseId;
+    private String ticket;
+    private String status;
     private Long supportId;
 }
 

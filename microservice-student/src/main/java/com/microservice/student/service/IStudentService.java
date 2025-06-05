@@ -13,5 +13,8 @@ public interface IStudentService {
     void save(Student student);
 
     List<Student> findByIdCourse(Long idCourse);
+    List<Student> findByIdEnrollment(Long idEnrollment);
+    List<Student> findByIdCertificate(Long idCertificate);
+    List<Student> findByIdSupport(Long idSupport);
 
 }

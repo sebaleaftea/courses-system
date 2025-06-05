@@ -36,23 +36,22 @@ public class EnrollmentServicelmpl implements IEnrollmentService{
     }
 
     @Override
-    public StudentByEnrollmentResponse findStudentByIdEnrollment(Long idEnrollment){
+    public StudentByEnrollmentResponse findStudentsByIdEnrollment(Long idEnrollment){
 
+
+        //Consultar el curso
+        //Porque devuelve un optional
         Enrollment enrollment = iEnrollmentRepository.findById(idEnrollment).orElse(new Enrollment());
 
+        //Obtener los estudiantes que estan en el curso obtenido
         List<StudentDTO> studentDTOList = studentClient.findAllStudentByEnrollment(idEnrollment);
 
+
         return StudentByEnrollmentResponse.builder()
-            .pay(enrollment.getPay())
-            .expiration(enrollment.getExpiration())
-            .status(enrollment.getStatus())
-            .build();
+                .pay(enrollment.getPay())
+                .expíration(enrollment.getExpiration())
+                .status(enrollment.getStatus())
+                .studentDTOList(studentDTOList)
+                .build();
     }
-
-
-
-
-
-
-
 }

@@ -61,7 +61,7 @@ public class StudentController {
     @GetMapping("/search-by-certificate/{certificateId}")
     public ResponseEntity<?> findByIdCertificate(@PathVariable Long certificateId){
          System.out.println("-------------------------------------------------------------------"+ certificateId);
-         return ResponseEntity.ok(iStudentService.findByIdCertificate(certificatetId));
+         return ResponseEntity.ok(iStudentService.findByIdCertificate(certificateId));
     }
 
     @GetMapping("/search-by-support/{supportId}")
