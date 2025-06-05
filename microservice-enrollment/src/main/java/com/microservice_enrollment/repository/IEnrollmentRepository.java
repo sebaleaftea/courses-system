@@ -8,4 +8,5 @@ import com.microservice_enrollment.model.Enrollment;
 @Repository
 public interface IEnrollmentRepository extends JpaRepository<Enrollment, Long>{
 
+
 }

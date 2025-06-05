@@ -52,4 +52,22 @@ public class StudentController {
          return ResponseEntity.ok(iStudentService.findByIdCourse(courseId));
     }
 
+    @GetMapping("/search-by-enrollment/{enrollmentId}")
+    public ResponseEntity<?> findByIdEnrollment(@PathVariable Long enrollmentId){
+         System.out.println("-------------------------------------------------------------------"+ enrollmentId);
+         return ResponseEntity.ok(iStudentService.findByIdEnrollment(enrollmentId));
+    }
+
+    @GetMapping("/search-by-certificate/{certificateId}")
+    public ResponseEntity<?> findByIdCertificate(@PathVariable Long certificateId){
+         System.out.println("-------------------------------------------------------------------"+ certificateId);
+         return ResponseEntity.ok(iStudentService.findByIdCertificate(certificatetId));
+    }
+
+    @GetMapping("/search-by-support/{supportId}")
+    public ResponseEntity<?> findByIdSupport(@PathVariable Long supportId){
+         System.out.println("-------------------------------------------------------------------"+ supportId);
+         return ResponseEntity.ok(iStudentService.findByIdSupport(supportId));
+    }
+
 }

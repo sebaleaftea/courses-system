@@ -13,7 +13,7 @@ import com.microservice_support.dto.StudentDTO;
 public interface StudentClient {
 
     
-    @GetMapping("/api/v1/student/search-by-course/{courseId}")    
-    List<StudentDTO> findAllStudentBySupport(@PathVariable Long courseId);
+    @GetMapping("/api/v1/student/search-by-support/{supportId}")    
+    List<StudentDTO> findAllStudentBySupport(@PathVariable Long supportId);
 
 }

@@ -24,6 +24,15 @@ public class Student {
     private String email;
 
     @Column(name = "course_id")
-    private Long courseId; //Parametro por el que yo voy a buscar en el otro microservicio
+    private Long courseId;
+
+    @Column(name = "certificateI_d")
+    private Long certificateId;
+
+    @Column(name = "EnrollmentI_d")
+    private Long enrollmentId;
+  
+    @Column(name = "Support_Id")
+    private Long supportId;
 
 }

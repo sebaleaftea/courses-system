@@ -37,4 +37,23 @@ public class StutendServiceImpl implements IStudentService{
         return studentRepository.findAllStudent(idCourse);
     }
 
+    @Override
+    public List<Student> findByIdEnrollment(Long idEnrollment) {
+        //Este es el que creamos con la notación query o con el nombre del metodo
+        return studentRepository.findAllStudent(idEnrollment);
+    }
+
+    @Override
+    public List<Student> findByIdCertificate(Long idCertificate) {
+        //Este es el que creamos con la notación query o con el nombre del metodo
+        return studentRepository.findAllStudent(idCertificate);
+    }
+
+    @Override
+    public List<Student> findByIdSupport(Long idSupport) {
+        //Este es el que creamos con la notación query o con el nombre del metodo
+        return studentRepository.findAllStudent(idSupport);
+    }
+
+
 }
