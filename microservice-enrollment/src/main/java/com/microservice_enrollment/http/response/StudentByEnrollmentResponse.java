@@ -14,7 +14,8 @@ import lombok.Data;
 @Data
 @NoArgsConstructor
 public class StudentByEnrollmentResponse {
-    private String enrollmentName;
+    private String pay;
+    private String expiration;
     private String status;
     private List<StudentDTO> studentDTOList;
 

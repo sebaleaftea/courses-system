@@ -2,4 +2,4 @@ spring:
   application:
     name: msvc-support
   config:
-    import: optional:configserver:http://localhost:8889
+    import: optional:configserver:http://localhost:8888

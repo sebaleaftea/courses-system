@@ -26,10 +26,10 @@ public class Student {
     @Column(name = "course_id")
     private Long courseId;
 
-    @Column(name = "certificateI_d")
+    @Column(name = "certificate_Id")
     private Long certificateId;
 
-    @Column(name = "EnrollmentI_d")
+    @Column(name = "Enrollment_Id")
     private Long enrollmentId;
   
     @Column(name = "Support_Id")

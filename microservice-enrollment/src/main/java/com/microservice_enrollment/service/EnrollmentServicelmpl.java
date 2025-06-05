@@ -49,7 +49,7 @@ public class EnrollmentServicelmpl implements IEnrollmentService{
 
         return StudentByEnrollmentResponse.builder()
                 .pay(enrollment.getPay())
-                .expíration(enrollment.getExpiration())
+                .expiration(enrollment.getExpiration())
                 .status(enrollment.getStatus())
                 .studentDTOList(studentDTOList)
                 .build();

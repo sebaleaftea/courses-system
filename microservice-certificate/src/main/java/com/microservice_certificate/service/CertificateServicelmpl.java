@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.microservice_certificate.client.StudentClient;
 import com.microservice_certificate.dto.StudentDTO;
@@ -11,6 +12,7 @@ import com.microservice_certificate.http.response.StudentByCertificateResponse;
 import com.microservice_certificate.model.Certificate;
 import com.microservice_certificate.repository.ICertificateRepository;
 
+@Service
 public class CertificateServicelmpl implements ICertificateService{
 
     @Autowired
@@ -42,7 +44,7 @@ public class CertificateServicelmpl implements ICertificateService{
         List<StudentDTO> studentDTOList = studentClient.findAllStudentByCertificate(idCertificate);
 
         return StudentByCertificateResponse.builder()
-                .certificateName(certificate.getName())
+                .name(certificate.getName())
                 .expirationDate(certificate.getExpirationDate())
                 .issueDate(certificate.getIssueDate())
                 .studentDTOList(studentDTOList)
