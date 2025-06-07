@@ -37,7 +37,7 @@ Support
 GET: htttp:localhost://8080/api/v1/support/all
 POST: htttp:localhost://8080/api/v1/support/create
 GET BY ID = htttp:localhost://8080/api/v1/support/search-by-support/{supportId}
-
+---------------------------------------------------------------------------------------
 
 
 
