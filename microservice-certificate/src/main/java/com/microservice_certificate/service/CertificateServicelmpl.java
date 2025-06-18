@@ -49,10 +49,6 @@ public class CertificateServicelmpl implements ICertificateService{
                 .issueDate(certificate.getIssueDate())
                 .studentDTOList(studentDTOList)
                 .build();
-   
-    
-    
-     
     }
 
 }

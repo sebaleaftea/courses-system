@@ -10,4 +10,13 @@ class MicroserviceCourseApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void testDataLoader() {
+	}
+
+	@Test
+	void testFindAllCourses() {
+		
+	}
+
 }
