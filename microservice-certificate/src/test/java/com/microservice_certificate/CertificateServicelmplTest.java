@@ -41,7 +41,7 @@ class CertificateServicelmplTest {
     @Test
     void testFindAll() {
         Certificate cert = new Certificate();
-        cert.setId(1);
+        cert.setId(1L);
         cert.setName("Certificado Test");
 
         when(iCertificateRepository.findAll()).thenReturn(List.of(cert));
