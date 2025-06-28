@@ -1,3 +1,4 @@
+
 package com.microservice_certificate;
 
 import org.springframework.boot.SpringApplication;
@@ -13,5 +14,6 @@ public class MicroserviceCertificateApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceCertificateApplication.class, args);
 	}
+
 
 }

@@ -21,7 +21,6 @@ public class Student {
 
     @Column(name = "last_name")
     private String lastName;
-    
     private String email;
 
     @Column(name = "course_id")
@@ -35,5 +34,7 @@ public class Student {
   
     @Column(name = "Support_Id")
     private Long supportId;
+
+    
 
 }

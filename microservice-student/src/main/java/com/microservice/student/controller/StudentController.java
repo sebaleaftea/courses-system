@@ -1,5 +1,7 @@
 package com.microservice.student.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,28 +48,24 @@ public class StudentController {
     }
 
     //localhost:8090/api/v1/student/search-by-course/1
-    @GetMapping("/search-by-course/{courseId}")
-    public ResponseEntity<?> findByIdCourse(@PathVariable Long courseId){
-         System.out.println("-------------------------------------------------------------------"+ courseId);
-         return ResponseEntity.ok(iStudentService.findByIdCourse(courseId));
+    @GetMapping("/search-certificate/{idCertificate}")
+    public ResponseEntity<List<Student>> findByIdCertificate(@PathVariable Long idCertificate) {
+        return ResponseEntity.ok(iStudentService.findByIdCertificate(idCertificate));
     }
 
-    @GetMapping("/search-by-enrollment/{enrollmentId}")
-    public ResponseEntity<?> findByIdEnrollment(@PathVariable Long enrollmentId){
-         System.out.println("-------------------------------------------------------------------"+ enrollmentId);
-         return ResponseEntity.ok(iStudentService.findByIdEnrollment(enrollmentId));
+    @GetMapping("/search-course/{idCourse}")
+    public ResponseEntity<List<Student>> findByIdCourse(@PathVariable Long idCourse) {
+        return ResponseEntity.ok(iStudentService.findByIdCourse(idCourse));
     }
 
-    @GetMapping("/search-by-certificate/{certificateId}")
-    public ResponseEntity<?> findByIdCertificate(@PathVariable Long certificateId){
-         System.out.println("-------------------------------------------------------------------"+ certificateId);
-         return ResponseEntity.ok(iStudentService.findByIdCertificate(certificateId));
+    @GetMapping("/search-enrollment/{idEnrollment}")
+    public ResponseEntity<List<Student>> findByIdEnrollment(@PathVariable Long idEnrollment) {
+        return ResponseEntity.ok(iStudentService.findByIdEnrollment(idEnrollment));
     }
 
-    @GetMapping("/search-by-support/{supportId}")
-    public ResponseEntity<?> findByIdSupport(@PathVariable Long supportId){
-         System.out.println("-------------------------------------------------------------------"+ supportId);
-         return ResponseEntity.ok(iStudentService.findByIdSupport(supportId));
+    @GetMapping("/search-support/{idSupport}")
+    public ResponseEntity<List<Student>> findByIdSupport(@PathVariable Long idSupport) {
+        return ResponseEntity.ok(iStudentService.findByIdSupport(idSupport));
     }
 
 }

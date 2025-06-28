@@ -1,6 +1,5 @@
 package com.microservice_certificate.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +47,7 @@ public class CertificateServicelmpl implements ICertificateService{
                 .expirationDate(certificate.getExpirationDate())
                 .issueDate(certificate.getIssueDate())
                 .studentDTOList(studentDTOList)
-                .build();
+                .build();     
     }
 
 }
