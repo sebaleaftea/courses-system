@@ -24,13 +24,15 @@ import com.microservice_certificate.dto.StudentDTO;
 import com.microservice_certificate.http.response.StudentByCertificateResponse;
 import com.microservice_certificate.model.Certificate;
 import com.microservice_certificate.repository.ICertificateRepository;
-import com.microservice_certificate.service.CertificateServicelmpl;
+import com.microservice_certificate.service.CertificateServiceImpl;
+
+
 
 @ExtendWith(MockitoExtension.class)
-class CertificateServicelmplTest {
+class CertificateServiceImplTest {
 
     @InjectMocks
-    private CertificateServicelmpl certificateService;
+    private CertificateServiceImpl certificateService;
 
     @Mock
     private ICertificateRepository certificateRepository;

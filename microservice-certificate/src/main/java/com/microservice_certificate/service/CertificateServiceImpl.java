@@ -12,7 +12,7 @@ import com.microservice_certificate.model.Certificate;
 import com.microservice_certificate.repository.ICertificateRepository;
 
 @Service
-public class CertificateServicelmpl implements ICertificateService{
+public class CertificateServiceImpl implements ICertificateService{
 
     @Autowired
     private ICertificateRepository iCertificateRepository;
