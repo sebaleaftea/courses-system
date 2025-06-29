@@ -17,6 +17,7 @@ import com.microservice_certificate.repository.ICertificateRepository;
 public class DataLoader implements CommandLineRunner {
 
     @Autowired
+
     private ICertificateRepository certificateRepository;
 
     @Override
@@ -33,6 +34,8 @@ public class DataLoader implements CommandLineRunner {
             certificate.setExpirationDate(Date.valueOf(expiration));
 
             certificateRepository.save(certificate);
+
+
         }
     }
 }
