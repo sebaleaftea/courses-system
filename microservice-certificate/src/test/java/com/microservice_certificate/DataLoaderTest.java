@@ -2,14 +2,10 @@ package com.microservice_certificate;
 
 import com.microservice_certificate.model.Certificate;
 import com.microservice_certificate.repository.ICertificateRepository;
-import net.datafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.sql.Date;
-import java.time.LocalDate;
 
 import static org.mockito.Mockito.*;
 

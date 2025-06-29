@@ -33,7 +33,7 @@ class CertificateServicelmplTest {
     private CertificateServicelmpl certificateService;
 
     @Mock
-    private ICertificateRepository iCertificateRepository;
+    private ICertificateRepository certificateRepository;
 
     @Mock
     private StudentClient studentClient;
@@ -43,14 +43,18 @@ class CertificateServicelmplTest {
         Certificate cert = new Certificate();
         cert.setId(1L);
         cert.setName("Certificado Test");
+        cert.setIssueDate(Date.valueOf("2024-01-01"));
+        cert.setExpirationDate(Date.valueOf("2025-01-01"));
 
-        when(iCertificateRepository.findAll()).thenReturn(List.of(cert));
+        when(certificateRepository.findAll()).thenReturn(List.of(cert));
 
         List<Certificate> result = certificateService.findAll();
 
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals("Certificado Test", result.get(0).getName());
+        assertEquals(Date.valueOf("2024-01-01"), result.get(0).getIssueDate());
+        assertEquals(Date.valueOf("2025-01-01"), result.get(0).getExpirationDate());
     }
 
     @Test
@@ -58,24 +62,30 @@ class CertificateServicelmplTest {
         Certificate cert = new Certificate();
         cert.setId(1L);
         cert.setName("Certificado Test");
+        cert.setIssueDate(Date.valueOf("2024-01-01"));
+        cert.setExpirationDate(Date.valueOf("2025-01-01"));
 
-        when(iCertificateRepository.findById(1L)).thenReturn(Optional.of(cert));
+        when(certificateRepository.findById(1L)).thenReturn(Optional.of(cert));
 
         Certificate found = certificateService.findById(1L);
 
         assertNotNull(found);
         assertEquals(1L, found.getId());
         assertEquals("Certificado Test", found.getName());
+        assertEquals(Date.valueOf("2024-01-01"), found.getIssueDate());
+        assertEquals(Date.valueOf("2025-01-01"), found.getExpirationDate());
     }
 
     @Test
     void testSave() {
         Certificate cert = new Certificate();
         cert.setName("Nuevo Certificado");
+        cert.setIssueDate(Date.valueOf("2024-01-01"));
+        cert.setExpirationDate(Date.valueOf("2025-01-01"));
 
         certificateService.save(cert);
 
-        verify(iCertificateRepository, times(1)).save(cert);
+        verify(certificateRepository, times(1)).save(cert);
     }
 
     @Test
@@ -93,7 +103,7 @@ class CertificateServicelmplTest {
                 .expirationDate(Date.valueOf("2025-01-01"))
                 .build();
 
-        when(iCertificateRepository.findById(1L)).thenReturn(Optional.of(cert));
+        when(certificateRepository.findById(1L)).thenReturn(Optional.of(cert));
         when(studentClient.findAllStudentByCertificate(1L)).thenReturn(List.of(student));
 
         StudentByCertificateResponse response = certificateService.findStudentsByIdCertificate(1L);
@@ -104,3 +114,4 @@ class CertificateServicelmplTest {
         assertEquals("Juan", response.getStudentDTOList().get(0).getName());
     }
 }
+

@@ -1,13 +1,15 @@
 package com.microservice.course;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class MicroserviceCourseApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void mainRunsWhithoutExceptions(){
+		MicroserviceCourseApplication.main(new String[] {});
 	}
 
 }
+/* Testing ya solucionado para el test , Spring application no corria como Query para 
+   las pruebas unitarias
+ */

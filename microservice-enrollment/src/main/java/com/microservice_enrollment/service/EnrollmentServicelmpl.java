@@ -38,7 +38,6 @@ public class EnrollmentServicelmpl implements IEnrollmentService{
     @Override
     public StudentByEnrollmentResponse findStudentsByIdEnrollment(Long idEnrollment){
 
-
         //Consultar el curso
         //Porque devuelve un optional
         Enrollment enrollment = iEnrollmentRepository.findById(idEnrollment).orElse(new Enrollment());
