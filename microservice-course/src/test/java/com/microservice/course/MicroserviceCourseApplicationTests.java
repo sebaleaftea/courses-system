@@ -10,3 +10,6 @@ class MicroserviceCourseApplicationTests {
 	}
 
 }
+/* Testing ya solucionado para el test , Spring application no corria como Query para 
+   las pruebas unitarias
+ */
