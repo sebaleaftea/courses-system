@@ -1,6 +1,10 @@
 package com.microservice_enrollment.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,10 +36,15 @@ public class EnrollmentController {
         return ResponseEntity.ok(enrollmentService.findAll());
     }
 
-    @GetMapping("/search/id/{id}")
-    public ResponseEntity<?> findByI(@PathVariable Long id){
-        return ResponseEntity.ok(enrollmentService.findById(id));
-    }
+    @GetMapping("/search/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        Enrollment enrollment = enrollmentService.findById(id);
+        EntityModel<Enrollment> resource = EntityModel.of(enrollment,
+            linkTo(methodOn(EnrollmentController.class).findById(id)).withSelfRel(),
+            linkTo(methodOn(EnrollmentController.class).findAllEnrollment()).withRel("all-Enrollments")
+        );
+        return ResponseEntity.ok(resource);
+    }    
 
     @GetMapping("/search-student/{idEnrollment}")
     public ResponseEntity<?> findStudentByIdEnrollment(@PathVariable Long idEnrollment){

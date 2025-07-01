@@ -1,8 +1,12 @@
 package com.microservice.student.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,9 +46,14 @@ public class StudentController {
     }
     
 
-    @GetMapping("/search/{id}")    
-    public ResponseEntity<?> findById(@PathVariable Long id){
-        return ResponseEntity.ok(iStudentService.findById(id));
+    @GetMapping("/search/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        Student student = iStudentService.findById(id);
+        EntityModel<Student> resource = EntityModel.of(student,
+            linkTo(methodOn(StudentController.class).findById(id)).withSelfRel(),
+            linkTo(methodOn(StudentController.class).findAllStudents()).withRel("all-students")
+        );
+        return ResponseEntity.ok(resource);
     }
 
     //localhost:8090/api/v1/student/search-by-course/1

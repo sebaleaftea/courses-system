@@ -2,15 +2,15 @@ package com.microservice_support.controller;
 
 
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.microservice_support.dto.StudentDTO;
-import com.microservice_support.http.response.StudentBySupportResponse;
 import com.microservice_support.model.Support;
 import com.microservice_support.service.ISupportService;
 
@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RestController
 @RequestMapping("/api/v1/support")
-
 public class SupportController {
 
     @Autowired
@@ -41,10 +40,15 @@ public class SupportController {
         return ResponseEntity.ok(supportService.findAll());
     }
 
-    @GetMapping("/search/id/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
-        return ResponseEntity.ok(supportService.findById(id));
-    }   
+    @GetMapping("/search/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        Support support = supportService.findById(id);
+        EntityModel<Support> resource = EntityModel.of(support,
+            linkTo(methodOn(SupportController.class).findById(id)).withSelfRel(),
+            linkTo(methodOn(SupportController.class).findAllSupport()).withRel("all-tickets")
+        );
+        return ResponseEntity.ok(resource);
+    }
     
     @GetMapping("/search-student/{idSupport}")
     public ResponseEntity<?> findStudentByIdSupport(@PathVariable Long idSupport){

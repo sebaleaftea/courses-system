@@ -1,8 +1,10 @@
 package com.microservice.course.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import com.microservice.course.model.Course;
 import com.microservice.course.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +39,12 @@ public class CourseController {
     
     @GetMapping("/search/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(courseService.findById(id));
+        Course course = courseService.findById(id);
+        EntityModel<Course> resource = EntityModel.of(course,
+            linkTo(methodOn(CourseController.class).findById(id)).withSelfRel(),
+            linkTo(methodOn(CourseController.class).findAllCourse()).withRel("all-courses")
+        );
+        return ResponseEntity.ok(resource);
     }
     
     @GetMapping("/search-student/{idCourse}")
