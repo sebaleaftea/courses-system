@@ -1,3 +1,6 @@
+SWAGGER: http://localhost:8080/swagger-ui/index.html
+HATEOAS: http://localhost:8080/api/v1/course/search/1
+
 Microservicio de Cursos
 
 Integrantes:
