@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.student.service.IStudentService;
 import com.microservice.student.model.Student;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -51,9 +53,28 @@ public class StudentController {
         Student student = iStudentService.findById(id);
         EntityModel<Student> resource = EntityModel.of(student,
             linkTo(methodOn(StudentController.class).findById(id)).withSelfRel(),
+            linkTo(methodOn(StudentController.class).findById(id)).withRel("get-student-by-id"),
             linkTo(methodOn(StudentController.class).findAllStudents()).withRel("all-students")
         );
         return ResponseEntity.ok(resource);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student student) {
+        if (!id.equals(student.getId())) {
+            return ResponseEntity.badRequest().build(); // El id de la URL y del cuerpo no coinciden
+        }
+        Student updated = iStudentService.updateStudent(student);
+        if (updated == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable Long id){
+        iStudentService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     //localhost:8090/api/v1/student/search-by-course/1

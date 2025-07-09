@@ -11,7 +11,11 @@ public interface ICourseService {
 
     Course findById(Long id);
 
+    Course updateCourse(Course course);
+
     void save(Course course);
+
+    void deleteById(Long id);
 
     StudentByCourseResponse findStudentsByIdCourse(Long idCourse);
 }

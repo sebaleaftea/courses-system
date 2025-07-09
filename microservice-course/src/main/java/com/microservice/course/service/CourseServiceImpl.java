@@ -10,6 +10,7 @@ import com.microservice.course.model.Course;
 import com.microservice.course.repository.ICourseRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseServiceImpl implements ICourseService{
@@ -28,6 +29,27 @@ public class CourseServiceImpl implements ICourseService{
     @Override
     public Course findById(Long id) {
         return iCourseRepository.findById(id).orElseThrow();
+    }
+    
+    @Override
+    public Course updateCourse(Course course){
+        Optional<Course> existingCourseOpt = iCourseRepository.findById(course.getId());
+        if (existingCourseOpt.isEmpty()) {
+        return null;
+        }
+
+        Course existingCourse = existingCourseOpt.get();
+
+        existingCourse.setName(course.getName());
+        existingCourse.setTeacher(course.getTeacher());
+
+
+        return iCourseRepository.save(existingCourse);
+    }
+
+    @Override
+    public void deleteById(Long id){
+        iCourseRepository.deleteById(id);
     }
 
     @Override

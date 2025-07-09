@@ -1,6 +1,7 @@
 package com.microservice.student.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,32 @@ public class StudentServiceImpl implements IStudentService{
     public Student findById(Long id) {
         return studentRepository.findById(id).orElseThrow();//Si no lo encuentra
         //Entonces lanza un error
+    }
+
+    @Override
+    public Student updateStudent(Student student) {
+        Optional<Student> existingStudentOpt = studentRepository.findById(student.getId());
+
+        if (existingStudentOpt.isEmpty()) {
+        return null;
+        }
+
+        Student existingStudent = existingStudentOpt.get();
+
+        existingStudent.setName(student.getName());
+        existingStudent.setLastName(student.getLastName());
+        existingStudent.setEmail(student.getEmail());
+        existingStudent.setCourseId(student.getCourseId());
+        existingStudent.setCertificateId(student.getCertificateId());
+        existingStudent.setEnrollmentId(student.getEnrollmentId());
+        existingStudent.setSupportId(student.getSupportId());
+
+        return studentRepository.save(existingStudent);
+    }
+
+    @Override
+    public void deleteById(Long id){
+        studentRepository.deleteById(id);
     }
 
     @Override
