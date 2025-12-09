@@ -18,13 +18,10 @@
 
   <modules>
     <module>microservice-config</module>
-    <module>microservice-course</module>
     <module>microservice-eureka</module>
     <module>microservice-gateway</module>
-    <module>microservice-student</module>
-    <module>microservice-support</module>
-    <module>microservice-enrollment</module>
-    <module>microservice-certificate</module>
+    <module>microservice-user</module>
+  
   </modules><!--El microservicio ya es un modulo de nuestro padre-->
 
 
@@ -39,7 +36,7 @@
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.22</version>
+        <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>

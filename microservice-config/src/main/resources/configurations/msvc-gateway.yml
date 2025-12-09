@@ -10,26 +10,10 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: students
+        - id: users
           uri: http://localhost:8090
           predicates:             
-            - Path=/api/v1/student/**
-        - id: courses
-          uri: http://localhost:9090
-          predicates:
-            - Path=/api/v1/course/**
-        - id: enrollments
-          uri: http://localhost:8092
-          predicates:             
-            - Path=/api/v1/enrollment/**    
-        - id: certificates
-          uri: http://localhost:9192
-          predicates:             
-            - Path=/api/v1/certificate/**
-        - id: supports
-          uri: http://localhost:8091
-          predicates:             
-            - Path=/api/v1/support/**
+            - Path=/api/v1/users/**
   cliente:
     register-with-eureka: false
  
